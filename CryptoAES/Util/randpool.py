@@ -26,8 +26,8 @@
 
 __revision__ = "$Id$"
 
-from CryptoAES.pct_warnings import RandomPool_DeprecationWarning
-import CryptoAES.Random
+from Crypto.pct_warnings import RandomPool_DeprecationWarning
+import Crypto.Random
 import warnings
 
 class RandomPool:
@@ -38,7 +38,7 @@ class RandomPool:
     def __init__(self, numbytes = 160, cipher=None, hash=None, file=None):
         warnings.warn("This application uses RandomPool, which is BROKEN in older releases.  See http://www.pycrypto.org/randpool-broken",
             RandomPool_DeprecationWarning)
-        self.__rng = CryptoAES.Random.new()
+        self.__rng = Crypto.Random.new()
         self.bytes = numbytes
         self.bits = self.bytes * 8
         self.entropy = self.bits

@@ -21,13 +21,13 @@
 """Miscellaneous modules
 
 Contains useful modules that don't belong into any of the
-other CryptoAES.* subpackages.
+other Crypto.* subpackages.
 
-CryptoAES.Util.number        Number-theoretic functions (primality testing, etc.)
-CryptoAES.Util.randpool      Random number generation
-CryptoAES.Util.RFC1751       Converts between 128-bit keys and human-readable
+Crypto.Util.number        Number-theoretic functions (primality testing, etc.)
+Crypto.Util.randpool      Random number generation
+Crypto.Util.RFC1751       Converts between 128-bit keys and human-readable
                           strings of words.
-CryptoAES.Util.asn1          Minimal support for ASN.1 DER encoding
+Crypto.Util.asn1          Minimal support for ASN.1 DER encoding
 
 """
 

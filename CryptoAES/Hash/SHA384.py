@@ -23,7 +23,7 @@
 SHA-384 belongs to the SHA-2_ family of cryptographic hashes.
 It produces the 384 bit digest of a message.
 
-    >>> from CryptoAES.Hash import SHA384
+    >>> from Crypto.Hash import SHA384
     >>>
     >>> h = SHA384.new()
     >>> h.update(b'Hello')
@@ -38,15 +38,15 @@ _revision__ = "$Id$"
 
 __all__ = ['new', 'digest_size', 'SHA384Hash' ]
 
-from CryptoAES.Util.py3compat import *
-from CryptoAES.Hash.hashalgo import HashAlgo
+from Crypto.Util.py3compat import *
+from Crypto.Hash.hashalgo import HashAlgo
 
 try:
     import hashlib
     hashFactory = hashlib.sha384
 
 except ImportError:
-    from CryptoAES.Hash import _SHA384
+    from Crypto.Hash import _SHA384
     hashFactory = _SHA384
 
 class SHA384Hash(HashAlgo):

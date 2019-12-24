@@ -22,11 +22,11 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Self-test suite for CryptoAES.Hash.MD2"""
+"""Self-test suite for Crypto.Hash.MD2"""
 
 __revision__ = "$Id$"
 
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.py3compat import *
 
 # This is a list of (expected_result, input[, description]) tuples.
 test_data = [
@@ -50,7 +50,7 @@ test_data = [
 ]
 
 def get_tests(config={}):
-    from CryptoAES.Hash import MD2
+    from Crypto.Hash import MD2
     from .common import make_hash_tests
     return make_hash_tests(MD2, "MD2", test_data,
         digest_size=16,

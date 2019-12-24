@@ -22,7 +22,7 @@
 
 RIPEMD-160_ produces the 160 bit digest of a message.
 
-    >>> from CryptoAES.Hash import RIPEMD
+    >>> from Crypto.Hash import RIPEMD
     >>>
     >>> h = RIPEMD.new()
     >>> h.update(b'Hello')
@@ -42,10 +42,10 @@ _revision__ = "$Id$"
 
 __all__ = ['new', 'digest_size', 'RIPEMD160Hash' ]
 
-from CryptoAES.Util.py3compat import *
-from CryptoAES.Hash.hashalgo import HashAlgo
+from Crypto.Util.py3compat import *
+from Crypto.Hash.hashalgo import HashAlgo
 
-import CryptoAES.Hash._RIPEMD160 as _RIPEMD160
+import Crypto.Hash._RIPEMD160 as _RIPEMD160
 hashFactory = _RIPEMD160
 
 class RIPEMD160Hash(HashAlgo):

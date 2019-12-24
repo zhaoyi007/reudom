@@ -46,8 +46,8 @@ __revision__ = "$Id$"
 
 import operator
 import sys
-from CryptoAES.Util.number import bytes_to_long, long_to_bytes
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.number import bytes_to_long, long_to_bytes
+from Crypto.Util.py3compat import *
 from functools import reduce
 
 def isInt(x):
@@ -231,7 +231,7 @@ class AllOrNothing:
 
     def _inventkey(self, key_size):
         # Return key_size random bytes
-        from CryptoAES import Random
+        from Crypto import Random
         return Random.new().read(key_size)
 
     def __newcipher(self, key):
@@ -295,7 +295,7 @@ Where:
             aslong = 1
 
     # ugly hack to force __import__ to give us the end-path module
-    module = __import__('CryptoAES.Cipher.'+ciphermodule, None, None, ['new'])
+    module = __import__('Crypto.Cipher.'+ciphermodule, None, None, ['new'])
 
     x = AllOrNothing(module)
     print('Original text:\n==========')

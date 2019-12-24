@@ -22,14 +22,14 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Self-test suite for CryptoAES.Cipher.ARC2"""
+"""Self-test suite for Crypto.Cipher.ARC2"""
 
 __revision__ = "$Id$"
 
 from .common import dict     # For compatibility with Python 2.1 and 2.2
 
 import unittest
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.py3compat import *
 
 # This is a list of (plaintext, ciphertext, key[, description[, extra_params]]) tuples.
 test_data = [
@@ -99,7 +99,7 @@ class BufferOverflowTest(unittest.TestCase):
 
     def setUp(self):
         global ARC2
-        from CryptoAES.Cipher import ARC2
+        from Crypto.Cipher import ARC2
 
     def runTest(self):
         """ARC2 with keylength > 128"""
@@ -108,7 +108,7 @@ class BufferOverflowTest(unittest.TestCase):
         self.assertRaises(ValueError, ARC2.new, key, mode)
 
 def get_tests(config={}):
-    from CryptoAES.Cipher import ARC2
+    from Crypto.Cipher import ARC2
     from .common import make_block_tests
 
     tests = make_block_tests(ARC2, "ARC2", test_data)

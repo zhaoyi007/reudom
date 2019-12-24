@@ -25,11 +25,11 @@ __revision__ = "$Id$"
 import unittest
 import sys
 
-from CryptoAES.PublicKey import RSA
-from CryptoAES.SelfTest.st_common import list_test_cases, a2b_hex, b2a_hex
-from CryptoAES import Random
-from CryptoAES.Cipher import PKCS1_v1_5 as PKCS
-from CryptoAES.Util.py3compat import *
+from Crypto.PublicKey import RSA
+from Crypto.SelfTest.st_common import list_test_cases, a2b_hex, b2a_hex
+from Crypto import Random
+from Crypto.Cipher import PKCS1_v1_5 as PKCS
+from Crypto.Util.py3compat import *
 
 def rws(t):
     """Remove white spaces, tabs, and new lines from a string"""

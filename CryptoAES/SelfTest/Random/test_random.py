@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#  SelfTest/Util/test_generic.py: Self-test for the CryptoAES.Random.new() function
+#  SelfTest/Util/test_generic.py: Self-test for the Crypto.Random.new() function
 #
 # Written in 2008 by Dwayne C. Litzenberger <dlitz@dlitz.net>
 #
@@ -22,21 +22,21 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Self-test suite for CryptoAES.Random.new()"""
+"""Self-test suite for Crypto.Random.new()"""
 
 __revision__ = "$Id$"
 
 import unittest
 import sys
 if sys.version_info[0] == 2 and sys.version_info[1] == 1:
-    from CryptoAES.Util.py21compat import *
-from CryptoAES.Util.py3compat import *
+    from Crypto.Util.py21compat import *
+from Crypto.Util.py3compat import *
 
 class SimpleTest(unittest.TestCase):
     def runTest(self):
-        """CryptoAES.Random.new()"""
+        """Crypto.Random.new()"""
         # Import the Random module and try to use it
-        from CryptoAES import Random
+        from Crypto import Random
         randobj = Random.new()
         x = randobj.read(16)
         y = randobj.read(16)
@@ -54,7 +54,7 @@ class SimpleTest(unittest.TestCase):
         # vonmisesvariate(), paretovariate()
         # weibullvariate()
         # WichmannHill(), whseed(), SystemRandom()
-        from CryptoAES.Random import random
+        from Crypto.Random import random
         x = random.getrandbits(16*8)
         y = random.getrandbits(16*8)
         self.assertNotEqual(x, y)

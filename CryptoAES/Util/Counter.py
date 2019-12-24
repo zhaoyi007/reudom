@@ -41,8 +41,8 @@ lead to more efficient (and faster) execution of CTR cipher modes.
 
 An example of usage is the following:
 
-    >>> from CryptoAES.Cipher import AES
-    >>> from CryptoAES.Util import Counter
+    >>> from Crypto.Cipher import AES
+    >>> from Crypto.Util import Counter
     >>>
     >>> pt = b'\x00'*1000000
     >>> ctr = Counter.new(128)
@@ -53,10 +53,10 @@ An example of usage is the following:
 """
 import sys
 if sys.version_info[0] == 2 and sys.version_info[1] == 1:
-    from CryptoAES.Util.py21compat import *
-from CryptoAES.Util.py3compat import *
+    from Crypto.Util.py21compat import *
+from Crypto.Util.py3compat import *
 
-from CryptoAES.Util import _counter
+from Crypto.Util import _counter
 import struct
 
 # Factory function
@@ -89,7 +89,7 @@ def new(nbits, prefix=b(""), suffix=b(""), initial_value=1, overflow=0, little_e
         as the counter wraps around. If False (default), the counter will
         simply restart from zero.
       disable_shortcut : boolean
-        If True, do not make ciphers from `CryptoAES.Cipher` bypass the Python
+        If True, do not make ciphers from `Crypto.Cipher` bypass the Python
         layer when invoking the counter block function.
         If False (default), bypass the Python layer.
     :Returns:

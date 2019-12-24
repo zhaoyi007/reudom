@@ -26,7 +26,7 @@ __revision__ = "$Id$"
 
 import sys
 if sys.version_info[0] == 2 and sys.version_info[1] == 1:
-    from CryptoAES.Util.py21compat import *
+    from Crypto.Util.py21compat import *
 
 import os
 import threading
@@ -34,8 +34,8 @@ import struct
 import time
 from math import floor
 
-from CryptoAES.Random import OSRNG
-from CryptoAES.Random.Fortuna import FortunaAccumulator
+from Crypto.Random import OSRNG
+from Crypto.Random.Fortuna import FortunaAccumulator
 
 class _EntropySource(object):
     def __init__(self, accumulator, src_num):
@@ -91,7 +91,7 @@ class _UserFriendlyRNG(object):
         the operating system.
         """
 
-        # Save the pid (helps ensure that CryptoAES.Random.atfork() gets called)
+        # Save the pid (helps ensure that Crypto.Random.atfork() gets called)
         self._pid = os.getpid()
 
         # Collect entropy from the operating system and feed it to

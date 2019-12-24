@@ -23,15 +23,15 @@
 Implements various cryptographic protocols.  (Don't expect to find
 network protocols here.)
 
-CryptoAES.Protocol.AllOrNothing
+Crypto.Protocol.AllOrNothing
  Transforms a message into a set of message blocks, such that the blocks
  can be recombined to get the message back.
 
-CryptoAES.Protocol.Chaffing
+Crypto.Protocol.Chaffing
  Takes a set of authenticated message blocks (the wheat) and adds a number
  of randomly generated blocks (the chaff).
 
-CryptoAES.Protocol.KDF
+Crypto.Protocol.KDF
  A collection of standard key derivation functions.
 
 :undocumented: __revision__

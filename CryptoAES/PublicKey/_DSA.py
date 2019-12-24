@@ -27,11 +27,11 @@
 
 __revision__ = "$Id$"
 
-from CryptoAES.PublicKey.pubkey import *
-from CryptoAES.Util import number
-from CryptoAES.Util.number import bytes_to_long, long_to_bytes
-from CryptoAES.Hash import SHA
-from CryptoAES.Util.py3compat import *
+from Crypto.PublicKey.pubkey import *
+from Crypto.Util import number
+from Crypto.Util.number import bytes_to_long, long_to_bytes
+from Crypto.Hash import SHA
+from Crypto.Util.py3compat import *
 
 class error (Exception):
     pass

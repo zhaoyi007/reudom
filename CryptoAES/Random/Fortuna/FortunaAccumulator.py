@@ -26,14 +26,14 @@ __revision__ = "$Id$"
 
 import sys
 if sys.version_info[0] == 2 and sys.version_info[1] == 1:
-    from CryptoAES.Util.py21compat import *
-from CryptoAES.Util.py3compat import *
+    from Crypto.Util.py21compat import *
+from Crypto.Util.py3compat import *
     
 from binascii import b2a_hex
 import time
 import warnings
 
-from CryptoAES.pct_warnings import ClockRewindWarning
+from Crypto.pct_warnings import ClockRewindWarning
 from . import SHAd256
 
 from . import FortunaGenerator
@@ -130,7 +130,7 @@ class FortunaAccumulator(object):
         # This is not part of the standard Fortuna definition, and using this
         # function frequently can weaken Fortuna's ability to resist a state
         # compromise extension attack, but we need this in order to properly
-        # implement CryptoAES.Random.atfork().  Otherwise, forked child processes
+        # implement Crypto.Random.atfork().  Otherwise, forked child processes
         # might continue to use their parent's PRNG state for up to 100ms in
         # some cases. (e.g. CVE-2013-1445)
         self.last_reseed = None

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#  SelfTest/Util/test_number.py: Self-test for parts of the CryptoAES.Util.number module
+#  SelfTest/Util/test_number.py: Self-test for parts of the Crypto.Util.number module
 #
 # Written in 2008 by Dwayne C. Litzenberger <dlitz@dlitz.net>
 #
@@ -22,13 +22,13 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Self-tests for (some of) CryptoAES.Util.number"""
+"""Self-tests for (some of) Crypto.Util.number"""
 
 __revision__ = "$Id$"
 
 import sys
 if sys.version_info[0] == 2 and sys.version_info[1] == 1:
-    from CryptoAES.Util.py21compat import *
+    from Crypto.Util.py21compat import *
 
 import unittest
 
@@ -38,7 +38,7 @@ import unittest
 class MiscTests(unittest.TestCase):
     def setUp(self):
         global number, math
-        from CryptoAES.Util import number
+        from Crypto.Util import number
         import math
 
     def test_ceil_shift(self):
@@ -285,7 +285,7 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(e, k.e)
 
 def get_tests(config={}):
-    from CryptoAES.SelfTest.st_common import list_test_cases
+    from Crypto.SelfTest.st_common import list_test_cases
     return list_test_cases(MiscTests)
 
 if __name__ == '__main__':

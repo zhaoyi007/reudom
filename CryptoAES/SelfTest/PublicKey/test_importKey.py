@@ -26,11 +26,11 @@ __revision__ = "$Id$"
 
 import unittest
 
-from CryptoAES.PublicKey import RSA
-from CryptoAES.SelfTest.st_common import *
-from CryptoAES.Util.py3compat import *
-from CryptoAES.Util.number import inverse
-from CryptoAES.Util import asn1
+from Crypto.PublicKey import RSA
+from Crypto.SelfTest.st_common import *
+from Crypto.Util.py3compat import *
+from Crypto.Util.number import inverse
+from Crypto.Util import asn1
 
 def der2pem(der, text='PUBLIC'):
     import binascii
@@ -331,7 +331,7 @@ if __name__ == '__main__':
 def get_tests(config={}):
     tests = []
     try:
-        from CryptoAES.PublicKey import _fastmath
+        from Crypto.PublicKey import _fastmath
         tests += list_test_cases(ImportKeyTestsFast)
     except ImportError:
         pass

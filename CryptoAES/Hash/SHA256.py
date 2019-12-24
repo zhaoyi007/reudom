@@ -23,7 +23,7 @@
 SHA-256 belongs to the SHA-2_ family of cryptographic hashes.
 It produces the 256 bit digest of a message.
 
-    >>> from CryptoAES.Hash import SHA256
+    >>> from Crypto.Hash import SHA256
     >>>
     >>> h = SHA256.new()
     >>> h.update(b'Hello')
@@ -38,15 +38,15 @@ _revision__ = "$Id$"
 
 __all__ = ['new', 'digest_size', 'SHA256Hash' ]
 
-from CryptoAES.Util.py3compat import *
-from CryptoAES.Hash.hashalgo import HashAlgo
+from Crypto.Util.py3compat import *
+from Crypto.Hash.hashalgo import HashAlgo
 
 try:
     import hashlib
     hashFactory = hashlib.sha256
 
 except ImportError:
-    from CryptoAES.Hash import _SHA256
+    from Crypto.Hash import _SHA256
     hashFactory = _SHA256
 
 class SHA256Hash(HashAlgo):

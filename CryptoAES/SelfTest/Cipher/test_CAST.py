@@ -22,11 +22,11 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Self-test suite for CryptoAES.Cipher.CAST"""
+"""Self-test suite for Crypto.Cipher.CAST"""
 
 __revision__ = "$Id$"
 
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.py3compat import *
 
 # This is a list of (plaintext, ciphertext, key) tuples.
 test_data = [
@@ -45,7 +45,7 @@ test_data = [
 ]
 
 def get_tests(config={}):
-    from CryptoAES.Cipher import CAST
+    from Crypto.Cipher import CAST
     from .common import make_block_tests
     return make_block_tests(CAST, "CAST", test_data)
 

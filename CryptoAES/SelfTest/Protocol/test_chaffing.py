@@ -1,5 +1,5 @@
 #
-# Test script for CryptoAES.Protocol.Chaffing
+# Test script for Crypto.Protocol.Chaffing
 #
 # Part of the Python Cryptography Toolkit
 #
@@ -26,7 +26,7 @@
 __revision__ = "$Id$"
 
 import unittest
-from CryptoAES.Protocol import Chaffing
+from Crypto.Protocol import Chaffing
 
 text = """\
 When in the Course of human events, it becomes necessary for one people to

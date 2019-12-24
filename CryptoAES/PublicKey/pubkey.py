@@ -27,7 +27,7 @@
 __revision__ = "$Id$"
 
 import types, warnings
-from CryptoAES.Util.number import *
+from Crypto.Util.number import *
 
 # Basic public key class
 class pubkey:

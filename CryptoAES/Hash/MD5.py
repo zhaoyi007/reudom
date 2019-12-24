@@ -22,7 +22,7 @@
 
 MD5 is specified in RFC1321_ and produces the 128 bit digest of a message.
 
-    >>> from CryptoAES.Hash import MD5
+    >>> from Crypto.Hash import MD5
     >>>
     >>> h = MD5.new()
     >>> h.update(b'Hello')
@@ -39,8 +39,8 @@ _revision__ = "$Id$"
 
 __all__ = ['new', 'digest_size', 'MD5Hash' ]
 
-from CryptoAES.Util.py3compat import *
-from CryptoAES.Hash.hashalgo import HashAlgo
+from Crypto.Util.py3compat import *
+from Crypto.Hash.hashalgo import HashAlgo
 
 try:
     # The md5 module is deprecated in Python 2.6, so use hashlib when possible.

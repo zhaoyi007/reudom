@@ -46,9 +46,9 @@ New designs should not use ARC4. A good alternative is AES
 
 As an example, encryption can be done as follows:
 
-    >>> from CryptoAES.Cipher import ARC4
-    >>> from CryptoAES.Hash import SHA
-    >>> from CryptoAES import Random
+    >>> from Crypto.Cipher import ARC4
+    >>> from Crypto.Hash import SHA
+    >>> from Crypto import Random
     >>>
     >>> key = b'Very long and confidential key'
     >>> nonce = Random.new().read(16)
@@ -63,7 +63,7 @@ As an example, encryption can be done as follows:
 
 __revision__ = "$Id$"
 
-from CryptoAES.Cipher import _ARC4
+from Crypto.Cipher import _ARC4
 
 class ARC4Cipher:
     """ARC4 cipher object"""

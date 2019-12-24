@@ -23,7 +23,7 @@
 SHA-512 belongs to the SHA-2_ family of cryptographic hashes.
 It produces the 512 bit digest of a message.
 
-    >>> from CryptoAES.Hash import SHA512
+    >>> from Crypto.Hash import SHA512
     >>>
     >>> h = SHA512.new()
     >>> h.update(b'Hello')
@@ -38,15 +38,15 @@ _revision__ = "$Id$"
 
 __all__ = ['new', 'digest_size', 'SHA512Hash' ]
 
-from CryptoAES.Util.py3compat import *
-from CryptoAES.Hash.hashalgo import HashAlgo
+from Crypto.Util.py3compat import *
+from Crypto.Hash.hashalgo import HashAlgo
 
 try:
     import hashlib
     hashFactory = hashlib.sha512
 
 except ImportError:
-    from CryptoAES.Hash import _SHA512
+    from Crypto.Hash import _SHA512
     hashFactory = _SHA512
 
 class SHA512Hash(HashAlgo):

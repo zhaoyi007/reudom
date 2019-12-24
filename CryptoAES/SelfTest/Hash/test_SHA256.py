@@ -22,17 +22,17 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Self-test suite for CryptoAES.Hash.SHA256"""
+"""Self-test suite for Crypto.Hash.SHA256"""
 
 __revision__ = "$Id$"
 
 import unittest
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.py3compat import *
 
 class LargeSHA256Test(unittest.TestCase):
     def runTest(self):
         """SHA256: 512/520 MiB test"""
-        from CryptoAES.Hash import SHA256
+        from Crypto.Hash import SHA256
         zeros = bchr(0x00) * (1024*1024)
 
         h = SHA256.new(zeros)
@@ -77,7 +77,7 @@ def get_tests(config={}):
          'Franz jagt im komplett verwahrlosten Taxi quer durch Bayern'),
     ]
 
-    from CryptoAES.Hash import SHA256
+    from Crypto.Hash import SHA256
     from .common import make_hash_tests
     tests = make_hash_tests(SHA256, "SHA256", test_data,
         digest_size=32,

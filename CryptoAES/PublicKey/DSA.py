@@ -57,9 +57,9 @@ This module provides facilities for generating new DSA keys and for constructing
 them from known components. DSA keys allows you to perform basic signing and
 verification.
 
-    >>> from CryptoAES.Random import random
-    >>> from CryptoAES.PublicKey import DSA
-    >>> from CryptoAES.Hash import SHA
+    >>> from Crypto.Random import random
+    >>> from Crypto.PublicKey import DSA
+    >>> from Crypto.Hash import SHA
     >>>
     >>> message = "Hello"
     >>> key = DSA.generate(1024)
@@ -83,13 +83,13 @@ __all__ = ['generate', 'construct', 'error', 'DSAImplementation', '_DSAobj']
 
 import sys
 if sys.version_info[0] == 2 and sys.version_info[1] == 1:
-    from CryptoAES.Util.py21compat import *
+    from Crypto.Util.py21compat import *
 
-from CryptoAES.PublicKey import _DSA, _slowmath, pubkey
-from CryptoAES import Random
+from Crypto.PublicKey import _DSA, _slowmath, pubkey
+from Crypto import Random
 
 try:
-    from CryptoAES.PublicKey import _fastmath
+    from Crypto.PublicKey import _fastmath
 except ImportError:
     _fastmath = None
 
@@ -241,7 +241,7 @@ class DSAImplementation(object):
     A DSA key factory.
 
     This class is only internally used to implement the methods of the
-    `CryptoAES.PublicKey.DSA` module.
+    `Crypto.PublicKey.DSA` module.
     """
  
     def __init__(self, **kwargs):
@@ -307,7 +307,7 @@ class DSAImplementation(object):
                             a single integer N and return a string of random data
                             N bytes long.
                             If not specified, a new one will be instantiated
-                            from ``CryptoAES.Random``.
+                            from ``Crypto.Random``.
          progress_func : callable
                             Optional function that will be called with a short string
                             containing the key parameter currently being generated;
@@ -315,7 +315,7 @@ class DSAImplementation(object):
                             waiting for a key to be generated.
 
         :attention: You should always use a cryptographically secure random number generator,
-            such as the one defined in the ``CryptoAES.Random`` module; **don't** just use the
+            such as the one defined in the ``Crypto.Random`` module; **don't** just use the
             current time and the ``random`` module.
 
         :Return: A DSA key object (`_DSAobj`).

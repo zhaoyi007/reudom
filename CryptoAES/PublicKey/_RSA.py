@@ -26,8 +26,8 @@
 
 __revision__ = "$Id$"
 
-from CryptoAES.PublicKey import pubkey
-from CryptoAES.Util import number
+from Crypto.PublicKey import pubkey
+from Crypto.Util import number
 
 def generate_py(bits, randfunc, progress_func=None, e=65537):
     """generate(bits:int, randfunc:callable, progress_func:callable, e:int)

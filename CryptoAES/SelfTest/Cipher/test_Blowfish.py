@@ -22,11 +22,11 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Self-test suite for CryptoAES.Cipher.Blowfish"""
+"""Self-test suite for Crypto.Cipher.Blowfish"""
 
 __revision__ = "$Id$"
 
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.py3compat import *
 
 # This is a list of (plaintext, ciphertext, key) tuples.
 test_data = [
@@ -101,7 +101,7 @@ test_data = [
 ]
 
 def get_tests(config={}):
-    from CryptoAES.Cipher import Blowfish
+    from Crypto.Cipher import Blowfish
     from .common import make_block_tests
     return make_block_tests(Blowfish, "Blowfish", test_data)
 

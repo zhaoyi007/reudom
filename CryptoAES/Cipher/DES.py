@@ -33,8 +33,8 @@ DES should not be used for new designs. Use `AES`.
 
 As an example, encryption can be done as follows:
 
-    >>> from CryptoAES.Cipher import DES3
-    >>> from CryptoAES import Random
+    >>> from Crypto.Cipher import DES3
+    >>> from Crypto import Random
     >>>
     >>> key = b'Sixteen byte key'
     >>> iv = Random.new().read(DES3.block_size)
@@ -50,8 +50,8 @@ As an example, encryption can be done as follows:
 
 __revision__ = "$Id$"
 
-from CryptoAES.Cipher import blockalgo
-from CryptoAES.Cipher import _DES
+from Crypto.Cipher import blockalgo
+from Crypto.Cipher import _DES
 
 class DESCipher(blockalgo.BlockAlgo):
     """DES cipher object"""
@@ -88,7 +88,7 @@ def new(key, *args, **kwargs):
       counter : callable
         (*Only* `MODE_CTR`). A stateful function that returns the next
         *counter block*, which is a byte string of `block_size` bytes.
-        For better performance, use `CryptoAES.Util.Counter`.
+        For better performance, use `Crypto.Util.Counter`.
       segment_size : integer
         (*Only* `MODE_CFB`).The number of bits the plaintext and ciphertext
         are segmented in.

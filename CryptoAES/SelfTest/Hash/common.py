@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#  SelfTest/Hash/common.py: Common code for CryptoAES.SelfTest.Hash
+#  SelfTest/Hash/common.py: Common code for Crypto.SelfTest.Hash
 #
 # Written in 2008 by Dwayne C. Litzenberger <dlitz@dlitz.net>
 #
@@ -29,7 +29,7 @@ __revision__ = "$Id$"
 import sys
 import unittest
 import binascii
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.py3compat import *
 
 # For compatibility with Python 2.1 and Python 2.2
 if sys.hexversion < 0x02030000:

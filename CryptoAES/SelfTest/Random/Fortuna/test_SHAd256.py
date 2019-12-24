@@ -22,10 +22,10 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Self-test suite for CryptoAES.Random.Fortuna.SHAd256"""
+"""Self-test suite for Crypto.Random.Fortuna.SHAd256"""
 
 __revision__ = "$Id$"
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.py3compat import *
 
 # This is a list of (expected_result, input[, description]) tuples.
 test_data = [
@@ -43,8 +43,8 @@ test_data = [
 ]
 
 def get_tests(config={}):
-    from CryptoAES.Random.Fortuna import SHAd256
-    from CryptoAES.SelfTest.Hash.common import make_hash_tests
+    from Crypto.Random.Fortuna import SHAd256
+    from Crypto.SelfTest.Hash.common import make_hash_tests
     return make_hash_tests(SHAd256, "SHAd256", test_data, 32)
 
 if __name__ == '__main__':

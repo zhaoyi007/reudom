@@ -69,7 +69,7 @@ http://theory.lcs.mit.edu/~rivest/chaffing.txt
 
 __revision__ = "$Id$"
 
-from CryptoAES.Util.number import bytes_to_long
+from Crypto.Util.number import bytes_to_long
 
 class Chaff:
     """Class implementing the chaff adding algorithm.
@@ -169,7 +169,7 @@ class Chaff:
         return chaffedblocks
 
     def _randnum(self, size):
-        from CryptoAES import Random
+        from Crypto import Random
         return Random.new().read(size)
 
 
@@ -196,7 +196,7 @@ likely to effect their Safety and Happiness.
 
     # now get MACs for all the text blocks.  The key is obvious...
     print('Calculating MACs...')
-    from CryptoAES.Hash import HMAC, SHA
+    from Crypto.Hash import HMAC, SHA
     key = 'Jefferson'
     macs = [HMAC.new(key, block, digestmod=SHA).digest()
             for block in blocks]

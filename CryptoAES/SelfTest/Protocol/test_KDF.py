@@ -25,10 +25,10 @@ __revision__ = "$Id$"
 import unittest
 from binascii import unhexlify
 
-from CryptoAES.SelfTest.st_common import list_test_cases
-from CryptoAES.Hash import SHA as SHA1,HMAC
+from Crypto.SelfTest.st_common import list_test_cases
+from Crypto.Hash import SHA as SHA1,HMAC
 
-from CryptoAES.Protocol.KDF import *
+from Crypto.Protocol.KDF import *
 
 def t2b(t): return unhexlify(b(t))
 

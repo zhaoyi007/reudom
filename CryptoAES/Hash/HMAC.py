@@ -45,7 +45,7 @@ The strength of an HMAC depends on:
 
 An example of possible usage is the following:
 
-    >>> from CryptoAES.Hash import HMAC
+    >>> from Crypto.Hash import HMAC
     >>>
     >>> secret = b'Swordfish'
     >>> h = HMAC.new(secret)
@@ -63,8 +63,8 @@ __revision__ = "$Id$"
 
 __all__ = ['new', 'digest_size', 'HMAC' ]
 
-from CryptoAES.Util.strxor import strxor_c
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.strxor import strxor_c
+from Crypto.Util.py3compat import *
 
 #: The size of the authentication tag produced by the MAC.
 #: It matches the digest size on the underlying
@@ -93,9 +93,9 @@ class HMAC:
             It is equivalent to an early call to `update()`. Optional.
         :Parameter digestmod:
             The hash algorithm the HMAC is based on.
-            Default is `CryptoAES.Hash.MD5`.
+            Default is `Crypto.Hash.MD5`.
         :Type digestmod:
-            A hash module or object instantiated from `CryptoAES.Hash`
+            A hash module or object instantiated from `Crypto.Hash`
         """
         if digestmod is None:
             from . import MD5
@@ -203,9 +203,9 @@ def new(key, msg = None, digestmod = None):
         It is equivalent to an early call to `HMAC.update()`.
         Optional.
     :Parameter digestmod:
-        The hash to use to implement the HMAC. Default is `CryptoAES.Hash.MD5`.
+        The hash to use to implement the HMAC. Default is `Crypto.Hash.MD5`.
     :Type digestmod:
-        A hash module or instantiated object from `CryptoAES.Hash`
+        A hash module or instantiated object from `Crypto.Hash`
     :Returns: An `HMAC` object
     """
     return HMAC(key, msg, digestmod)

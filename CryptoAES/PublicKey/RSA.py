@@ -42,7 +42,7 @@ bytes if *n* is 2048 bit long).
 This module provides facilities for generating fresh, new RSA keys, constructing
 them from known components, exporting them, and importing them.
 
-    >>> from CryptoAES.PublicKey import RSA
+    >>> from Crypto.PublicKey import RSA
     >>>
     >>> key = RSA.generate(2048)
     >>> f = open('mykey.pem','w')
@@ -55,7 +55,7 @@ them from known components, exporting them, and importing them.
 Even though you may choose to  directly use the methods of an RSA key object
 to perform the primitive cryptographic operations (e.g. `_RSAobj.encrypt`),
 it is recommended to use one of the standardized schemes instead (like
-`CryptoAES.Cipher.PKCS1_v1_5` or `CryptoAES.Signature.PKCS1_v1_5`).
+`Crypto.Cipher.PKCS1_v1_5` or `Crypto.Signature.PKCS1_v1_5`).
 
 .. _RSA: http://en.wikipedia.org/wiki/RSA_%28algorithm%29
 .. _ECRYPT: http://www.ecrypt.eu.org/documents/D.SPA.17.pdf
@@ -69,24 +69,24 @@ __all__ = ['generate', 'construct', 'error', 'importKey', 'RSAImplementation', '
 
 import sys
 if sys.version_info[0] == 2 and sys.version_info[1] == 1:
-    from CryptoAES.Util.py21compat import *
-from CryptoAES.Util.py3compat import *
-#from CryptoAES.Util.python_compat import *
-from CryptoAES.Util.number import getRandomRange, bytes_to_long, long_to_bytes
+    from Crypto.Util.py21compat import *
+from Crypto.Util.py3compat import *
+#from Crypto.Util.python_compat import *
+from Crypto.Util.number import getRandomRange, bytes_to_long, long_to_bytes
 
-from CryptoAES.PublicKey import _RSA, _slowmath, pubkey
-from CryptoAES import Random
+from Crypto.PublicKey import _RSA, _slowmath, pubkey
+from Crypto import Random
 
-from CryptoAES.Util.asn1 import DerObject, DerSequence, DerNull
+from Crypto.Util.asn1 import DerObject, DerSequence, DerNull
 import binascii
 import struct
 
-from CryptoAES.Util.number import inverse
+from Crypto.Util.number import inverse
 
-from CryptoAES.Util.number import inverse
+from Crypto.Util.number import inverse
 
 try:
-    from CryptoAES.PublicKey import _fastmath
+    from Crypto.PublicKey import _fastmath
 except ImportError:
     _fastmath = None
 
@@ -141,7 +141,7 @@ class _RSAobj(pubkey.pubkey):
          cryptographic padding, and you should not directly encrypt data with
          this method. Failure to do so may lead to security vulnerabilities.
          It is recommended to use modules
-         `CryptoAES.Cipher.PKCS1_OAEP` or `CryptoAES.Cipher.PKCS1_v1_5` instead.
+         `Crypto.Cipher.PKCS1_OAEP` or `Crypto.Cipher.PKCS1_v1_5` instead.
 
         :Return: A tuple with two items. The first item is the ciphertext
          of the same type as the plaintext (string or long). The second item
@@ -159,7 +159,7 @@ class _RSAobj(pubkey.pubkey):
          cryptographic padding, and you should not directly decrypt data with
          this method. Failure to do so may lead to security vulnerabilities.
          It is recommended to use modules
-         `CryptoAES.Cipher.PKCS1_OAEP` or `CryptoAES.Cipher.PKCS1_v1_5` instead.
+         `Crypto.Cipher.PKCS1_OAEP` or `Crypto.Cipher.PKCS1_v1_5` instead.
 
         :Parameter ciphertext: The piece of data to decrypt with RSA. It may
          not be numerically larger than the RSA module (**n**). If a tuple,
@@ -183,7 +183,7 @@ class _RSAobj(pubkey.pubkey):
          cryptographic padding, and you should not directly sign data with
          this method. Failure to do so may lead to security vulnerabilities.
          It is recommended to use modules
-         `CryptoAES.Signature.PKCS1_PSS` or `CryptoAES.Signature.PKCS1_v1_5` instead.
+         `Crypto.Signature.PKCS1_PSS` or `Crypto.Signature.PKCS1_v1_5` instead.
 
         :Parameter M: The piece of data to sign with RSA. It may
          not be numerically larger than the RSA module (**n**).
@@ -206,7 +206,7 @@ class _RSAobj(pubkey.pubkey):
          cryptographic padding, and you should not directly verify data with
          this method. Failure to do so may lead to security vulnerabilities.
          It is recommended to use modules
-         `CryptoAES.Signature.PKCS1_PSS` or `CryptoAES.Signature.PKCS1_v1_5` instead.
+         `Crypto.Signature.PKCS1_PSS` or `Crypto.Signature.PKCS1_v1_5` instead.
  
         :Parameter M: The expected message.
         :Type M: byte string or long
@@ -227,7 +227,7 @@ class _RSAobj(pubkey.pubkey):
         #(ciphertext,) = c
         (ciphertext,) = c[:1]  # HACK - We should use the previous line
                                # instead, but this is more compatible and we're
-                               # going to replace the CryptoAES.PublicKey API soon
+                               # going to replace the Crypto.PublicKey API soon
                                # anyway.
 
         # Blinded RSA decryption (to prevent timing attacks):
@@ -253,7 +253,7 @@ class _RSAobj(pubkey.pubkey):
         #(s,) = sig
         (s,) = sig[:1]  # HACK - We should use the previous line instead, but
                         # this is more compatible and we're going to replace
-                        # the CryptoAES.PublicKey API soon anyway.
+                        # the Crypto.PublicKey API soon anyway.
         return self.key._verify(m, s)
 
     def has_private(self):
@@ -379,13 +379,13 @@ class _RSAobj(pubkey.pubkey):
                 objenc = None
                 if passphrase and keyType.endswith('PRIVATE'):
                     # We only support 3DES for encryption
-                    import CryptoAES.Hash.MD5
-                    from CryptoAES.Cipher import DES3
-                    from CryptoAES.Protocol.KDF import PBKDF1
+                    import Crypto.Hash.MD5
+                    from Crypto.Cipher import DES3
+                    from Crypto.Protocol.KDF import PBKDF1
                     salt = self._randfunc(8)
-                    key =  PBKDF1(passphrase, salt, 16, 1, CryptoAES.Hash.MD5)
-                    key += PBKDF1(key + passphrase, salt, 8, 1, CryptoAES.Hash.MD5)
-                    objenc = DES3.new(key, CryptoAES.Cipher.DES3.MODE_CBC, salt)
+                    key =  PBKDF1(passphrase, salt, 16, 1, Crypto.Hash.MD5)
+                    key += PBKDF1(key+passphrase, salt, 8, 1, Crypto.Hash.MD5)
+                    objenc = DES3.new(key, Crypto.Cipher.DES3.MODE_CBC, salt)
                     pem += b('Proc-Type: 4,ENCRYPTED\n')
                     pem += b('DEK-Info: DES-EDE3-CBC,') + binascii.b2a_hex(salt).upper() + b('\n\n')
                 
@@ -406,7 +406,7 @@ class RSAImplementation(object):
     """
     An RSA key factory.
 
-    This class is only internally used to implement the methods of the `CryptoAES.PublicKey.RSA` module.
+    This class is only internally used to implement the methods of the `Crypto.PublicKey.RSA` module.
 
     :sort: __init__,generate,construct,importKey
     :undocumented: _g*, _i*
@@ -471,7 +471,7 @@ class RSAImplementation(object):
                             a single integer N and return a string of random data
                             N bytes long.
                             If not specified, a new one will be instantiated
-                            from ``CryptoAES.Random``.
+                            from ``Crypto.Random``.
 
          progress_func : callable
                             Optional function that will be called with a short string
@@ -487,7 +487,7 @@ class RSAImplementation(object):
                             choice: other common values are 5, 7, 17, and 257.
 
         :attention: You should always use a cryptographically secure random number generator,
-            such as the one defined in the ``CryptoAES.Random`` module; **don't** just use the
+            such as the one defined in the ``Crypto.Random`` module; **don't** just use the
             current time and the ``random`` module.
 
         :attention: Exponent 3 is also widely used, but it requires very special care when padding
@@ -641,18 +641,18 @@ class RSAImplementation(object):
                         raise ValueError("PEM encryption format not supported.")
                     algo, salt = DEK[1].split(b(','))
                     salt = binascii.a2b_hex(salt)
-                    import CryptoAES.Hash.MD5
-                    from CryptoAES.Cipher import DES, DES3
-                    from CryptoAES.Protocol.KDF import PBKDF1
+                    import Crypto.Hash.MD5
+                    from Crypto.Cipher import DES, DES3
+                    from Crypto.Protocol.KDF import PBKDF1
                     if algo==b("DES-CBC"):
                         # This is EVP_BytesToKey in OpenSSL
-                        key = PBKDF1(passphrase, salt, 8, 1, CryptoAES.Hash.MD5)
-                        keyobj = DES.new(key, CryptoAES.Cipher.DES.MODE_CBC, salt)
+                        key = PBKDF1(passphrase, salt, 8, 1, Crypto.Hash.MD5)
+                        keyobj = DES.new(key, Crypto.Cipher.DES.MODE_CBC, salt)
                     elif algo==b("DES-EDE3-CBC"):
                         # Note that EVP_BytesToKey is note exactly the same as PBKDF1
-                        key =  PBKDF1(passphrase, salt, 16, 1, CryptoAES.Hash.MD5)
-                        key += PBKDF1(key + passphrase, salt, 8, 1, CryptoAES.Hash.MD5)
-                        keyobj = DES3.new(key, CryptoAES.Cipher.DES3.MODE_CBC, salt)
+                        key =  PBKDF1(passphrase, salt, 16, 1, Crypto.Hash.MD5)
+                        key += PBKDF1(key+passphrase, salt, 8, 1, Crypto.Hash.MD5)
+                        keyobj = DES3.new(key, Crypto.Cipher.DES3.MODE_CBC, salt)
                     else:
                         raise ValueError("Unsupport PEM encryption algorithm.")
                     lines = lines[2:]

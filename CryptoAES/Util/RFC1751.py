@@ -28,7 +28,7 @@ __revision__ = "$Id$"
 
 
 import binascii
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.py3compat import *
 from functools import reduce
 
 binary={0:'0000', 1:'0001', 2:'0010', 3:'0011', 4:'0100', 5:'0101',

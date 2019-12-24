@@ -22,12 +22,12 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Self-test suite for CryptoAES.Cipher.AES"""
+"""Self-test suite for Crypto.Cipher.AES"""
 
 __revision__ = "$Id$"
 
 from .common import dict     # For compatibility with Python 2.1 and 2.2
-from CryptoAES.Util.py3compat import *
+from Crypto.Util.py3compat import *
 from binascii import hexlify
 
 # This is a list of (plaintext, ciphertext, key[, description[, params]]) tuples.
@@ -1421,7 +1421,7 @@ test_data = [
 ]
 
 def get_tests(config={}):
-    from CryptoAES.Cipher import AES
+    from Crypto.Cipher import AES
     from .common import make_block_tests
     return make_block_tests(AES, "AES", test_data)
 

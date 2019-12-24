@@ -49,7 +49,7 @@ def run(module=None, verbosity=0, stream=None, tests=None, config=None, **kwargs
     perform some of the tests.  For example, the following would test only the
     hash modules:
 
-        CryptoAES.SelfTest.run(CryptoAES.SelfTest.Hash)
+        Crypto.SelfTest.run(Crypto.SelfTest.Hash)
 
     """
     if config is None:
@@ -76,13 +76,13 @@ def run(module=None, verbosity=0, stream=None, tests=None, config=None, **kwargs
 
 def get_tests(config={}):
     tests = []
-    from CryptoAES.SelfTest import Cipher; tests += Cipher.get_tests(config=config)
-    from CryptoAES.SelfTest import Hash;   tests += Hash.get_tests(config=config)
-    from CryptoAES.SelfTest import Protocol; tests += Protocol.get_tests(config=config)
-    from CryptoAES.SelfTest import PublicKey; tests += PublicKey.get_tests(config=config)
-    from CryptoAES.SelfTest import Random; tests += Random.get_tests(config=config)
-    from CryptoAES.SelfTest import Util;   tests += Util.get_tests(config=config)
-    from CryptoAES.SelfTest import Signature;   tests += Signature.get_tests(config=config)
+    from Crypto.SelfTest import Cipher; tests += Cipher.get_tests(config=config)
+    from Crypto.SelfTest import Hash;   tests += Hash.get_tests(config=config)
+    from Crypto.SelfTest import Protocol; tests += Protocol.get_tests(config=config)
+    from Crypto.SelfTest import PublicKey; tests += PublicKey.get_tests(config=config)
+    from Crypto.SelfTest import Random; tests += Random.get_tests(config=config)
+    from Crypto.SelfTest import Util;   tests += Util.get_tests(config=config)
+    from Crypto.SelfTest import Signature;   tests += Signature.get_tests(config=config)
     return tests
 
 if __name__ == '__main__':

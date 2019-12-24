@@ -81,11 +81,11 @@ This module provides facilities for generating new ElGamal keys and for construc
 them from known components. ElGamal keys allows you to perform basic signing,
 verification, encryption, and decryption.
 
-    >>> from CryptoAES import Random
-    >>> from CryptoAES.Random import random
-    >>> from CryptoAES.PublicKey import ElGamal
-    >>> from CryptoAES.Util.number import GCD
-    >>> from CryptoAES.Hash import SHA
+    >>> from Crypto import Random
+    >>> from Crypto.Random import random
+    >>> from Crypto.PublicKey import ElGamal
+    >>> from Crypto.Util.number import GCD
+    >>> from Crypto.Hash import SHA
     >>>
     >>> message = "Hello"
     >>> key = ElGamal.generate(1024, Random.new().read)
@@ -109,8 +109,8 @@ __revision__ = "$Id$"
 
 __all__ = ['generate', 'construct', 'error', 'ElGamalobj']
 
-from CryptoAES.PublicKey.pubkey import *
-from CryptoAES.Util import number
+from Crypto.PublicKey.pubkey import *
+from Crypto.Util import number
 
 class error (Exception):
     pass
@@ -137,7 +137,7 @@ def generate(bits, randfunc, progress_func=None):
             waiting for a key to be generated.
 
     :attention: You should always use a cryptographically secure random number generator,
-        such as the one defined in the ``CryptoAES.Random`` module; **don't** just use the
+        such as the one defined in the ``Crypto.Random`` module; **don't** just use the
         current time and the ``random`` module.
 
     :Return: An ElGamal key object (`ElGamalobj`).

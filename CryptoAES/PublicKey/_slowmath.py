@@ -22,7 +22,7 @@
 # SOFTWARE.
 # ===================================================================
 
-"""Pure Python implementation of the RSA-related portions of CryptoAES.PublicKey._fastmath."""
+"""Pure Python implementation of the RSA-related portions of Crypto.PublicKey._fastmath."""
 
 __revision__ = "$Id$"
 
@@ -31,8 +31,8 @@ __all__ = ['rsa_construct']
 import sys
 
 if sys.version_info[0] == 2 and sys.version_info[1] == 1:
-    from CryptoAES.Util.py21compat import *
-from CryptoAES.Util.number import size, inverse, GCD
+    from Crypto.Util.py21compat import *
+from Crypto.Util.number import size, inverse, GCD
 
 class error(Exception):
     pass
