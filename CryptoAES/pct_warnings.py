@@ -41,13 +41,13 @@ class CryptoRuntimeWarning(RuntimeWarning, CryptoWarning):
 #
 
 class RandomPool_DeprecationWarning(CryptoDeprecationWarning):
-    """Issued when CryptoAES.Util.randpool.RandomPool is instantiated."""
+    """Issued when Crypto.Util.randpool.RandomPool is instantiated."""
 
 class ClockRewindWarning(CryptoRuntimeWarning):
     """Warning for when the system clock moves backwards."""
 
 class GetRandomNumber_DeprecationWarning(CryptoDeprecationWarning):
-    """Issued when CryptoAES.Util.number.getRandomNumber is invoked."""
+    """Issued when Crypto.Util.number.getRandomNumber is invoked."""
 
 class PowmInsecureWarning(CryptoRuntimeWarning):
     """Warning for when _fastmath is built without mpz_powm_sec"""
