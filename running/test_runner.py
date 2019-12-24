@@ -35,7 +35,7 @@ seldom_str = """
 """
 
 def main(path=None,
-         title="reudom Test Report",
+         title="Reudom Test Report",
          description="Test case execution",
          debug=False,
          rerun=0,
