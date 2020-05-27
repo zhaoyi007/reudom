@@ -4,6 +4,7 @@ import time
 import logging
 import unittest
 from .HTMLTestRunner import HTMLTestRunner
+from .BeautifulReport import BeautifulReport
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
